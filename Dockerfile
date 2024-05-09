@@ -7,6 +7,8 @@ RUN docker-php-ext-install pdo_mysql zip
 
 COPY --from=composer:2.5.7 /usr/bin/composer /usr/bin/composer
 
+RUN a2enmod rewrite
+
 COPY . .
 
 RUN chmod -R 777 /var/www/html
